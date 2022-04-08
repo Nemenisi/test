@@ -1,0 +1,248 @@
+
+<html>
+
+<head>
+	<meta stringset="utf-8">
+	<title>JavaScript排序</title>
+	<link rel="stylesheet" href="css/sort.css">
+
+</head>
+
+<style>
+	form{
+		font-size: 12px;
+	}
+	.form-group{
+		margin-bottom: 10px;
+	}
+	.form-control{
+/*	line-height: 32px;
+height: 32px;*/
+}
+.num-input{
+	width: 600px;
+}
+</style>
+<form>
+	<div class="form-group">
+		<label for="arrLen">数组长度：</label>
+		<input name="arrLen" class="form-control" value = "50">
+		<input value = "生成数组" id="createArr" type="button">
+	</div>
+	<div class="form-group">
+		<label for="arr">数组：</label><textarea name="arr" class="form-control num-input" rows="5">[66,78,90,22,64,18,86,32,19,60,28,24,23,17,67,82,57,89,33,11,76,43,79,5,42,99,14,95,68,51,4,77,91,83,27,21,84,72,8,30,71,52,20,94,80,29,81,26,39,53]</textarea>
+	</div>
+	<div class="form-group">
+		<label for="speed">速度：</label>
+		<input id="speedUp" value="加快" class="" type="button">
+		<input id="speedDown" value="减慢" class="" type="button">
+	</div>
+
+	<div class="form-group sortBtn">
+		<label for="arr">排序方式：</label>
+		<input id="bubble" value="冒泡排序" class="" type="button">
+		<input id="insert" value="插入排序" class="" type="button">
+		<input id="select" value="选择排序" class="" type="button">
+		<input id="quick" value="快速排序" class="" type="button">
+		<input id="quick2" value="快速排序2" class="" type="button">
+		<input id="merge" value="归并排序" class="" type="button">
+		<input id="shell" value="希尔排序" class="" type="button">
+	</div>
+
+</form>
+
+
+
+
+<ul class="sort_ul">
+<!-- 	<li class="sort_li"><span class="sort_span" style="height: 40%"></span></li>
+	<li class="sort_li"><span class="sort_span" style="height: 30%"></span></li>
+	<li class="sort_li"><span class="sort_span" style="height: 70%"></span></li>
+	<li class="sort_li"><span class="sort_span" style="height: 20%"></span>
+		<span class="sort_span_in " style="height: 10%"></span>
+	</li> -->
+</ul>
+<body>
+	<p>@{ 
+var mystringt = new stringt(width: 600, height: 400) 
+   .AddTitle("Employees") 
+   .AddSeries(stringtType: "column",
+      xValue: new[] {  "Peter", "Andrew", "Julie", "Mary", "Dave" }, 
+      yValues: new[] { "2", "6", "4", "5", "3" }) 
+   .Write();
+}</p>
+	<script>
+		var arr = [5,0,2,9,3,4,6,1,8];
+		var a = [9,8,7,6,5,4,3,2,1,0];
+		var c = [43,27,39,17,32,21,14,42,22,15,18,12,46,1,16,10,4,29,3,23,24,49,0,5,36,13,34,6,19,47,9,33,31,20,28,44,38,37,41,40,8,35,30,7,11,45,2,25,48,26];
+	</script>
+	<script src="http://apps.bdimg.com/libs/jquery/1.8.1/jquery.min.js"></script>
+
+	<script src="js/selectSort.js"></script>
+	<script src="js/insertSort.js"></script>
+	<script src="js/mergeSort.js"></script>
+	<script src="js/shellSort.js"></script>
+	<script src="js/quickSort.js"></script>
+	<script src="js/quickSort2.js"></script>
+	<script src="js/bubbleSort.js"></script>
+	<script src="js/animation.js"></script>
+</body>
+</html>
+
+
+/*线性列表用于图表显示*/
+        private List<int> List_ia = new List<int>();    
+        Random random = new Random();
+
+        public Form1()
+        {
+            InitializeComponent();
+        }
+
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+            int num1 = random.Next(0, 500);   //随机数
+            List_ia.Add(num1); 
+            ListRemove(List_ia);
+            Drawstringt(List_ia);
+        }
+
+        private void Drawstringt(List<int> List_ia)
+        {
+            stringt1.Series[0].Points.Clear();    //清除所有点
+
+            for (int i = 0; i < List_ia.Count; i++)
+            {
+                stringt1.Series[0].Points.AddXY(i + 1, List_ia[i]);   //添加点
+            }
+
+        }
+
+        //清除所有的链表
+        private void ClearAllList()
+        {
+            List_ia.Clear();
+
+        }
+
+        //当大于50时移除list头部
+        private void ListRemove(List<int> list)
+        {
+            if (list.Count >= 50)
+            {
+                list.RemoveAt(0);
+            }
+        }
+
+        private void button_start_Click(object sender, EventArgs e)
+        {
+            if (button_start.Text == "开始")
+            {
+                timer1.Start();
+                button_start.Text = "暂停";
+            }
+            else
+            {
+                timer1.Stop();
+                button_start.Text = "开始";
+            }
+        }
+        
+
+       #pragma once
+
+struct form {
+	//表格的边角
+	string leftTop = "┌";
+	string leftFoot = "└";
+	string rightTop = "┐";
+	string rightFoot = "┘";
+	//表格的横线和竖线
+	string line1 = "─";
+	string line2 = "│";
+	//图表中的各种交叉线
+	string Xleft = "├";
+	string Xfight = "┤";
+	string XTop = "┬";
+	string XFoot = "┴";
+	string XCenter = "┼";
+	//表格填充和空隙
+	string value = "█";
+	string space = " ";
+};
+
+
+#include <iostream>
+#include <map>
+#include <vector>
+#include<algorithm>
+#include "form.h"
+
+using namespace std;
+
+//使用value值进行对比，若x.value>y.value，返回true
+int cmp(const pair<string, int>& x, const pair<string, int>& y)
+{
+    return x.second > y.second;
+}
+
+//把map中的key值和value值分别转存到一个pair类型的vector中，
+//在对vector按照一定的规则排序
+void sortMapByValue(map<string, int>& tMap, vector<pair<string, int> >& tVector)
+{
+    for (map<string, int>::iterator curr = tMap.begin(); curr != tMap.end(); curr++)
+        tVector.push_back(make_pair(curr->first, curr->second));
+    sort(tVector.begin(), tVector.end(), cmp);
+}
+
+void drawForm(int namemax, int valuemax, int linenum)
+{
+    double ratio = valuemax * 1.0 / MAXVALUE;
+
+}
+
+void draw(map<string, int>& tMap)
+{
+    drawForm();
+}
+
+void draw(vector<pair<string, int>>& tVector)
+{
+    drawForm()
+}
+
+int main()
+{
+    int line = 0;
+    cin >> line;//获取数据条目数
+    string value,soft;
+    cin >> value >> soft;
+    map<string, int> mapData;//录入每行数据
+    while (line--) {
+        string name;
+        int num;
+        cin >> name >> num;
+        mapData.insert(pair<string, int>(name, num));
+    }
+
+    if (value._Equal("esq") == 0){
+        draw(mapData);
+    }
+    else {
+        vector<pair<string, int>> tVector;
+        sortMapByValue(mapData, tVector);
+        draw(tVector);
+    }
+
+    Form form;
+
+    cout << "按Key排序结果：" << endl;//map默认安装key存储
+    for (map<string, int>::iterator it = mapData.begin(); it != mapData.end(); ++it)
+        cout << it->first << " " << it->second << endl;
+
+    for (int i = 0; i < tVector.size(); i++)
+        cout << tVector[i].first << ": " << tVector[i].second << endl;
+
+    system("pause");
+}
+
